@@ -6,19 +6,34 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { shades } from "../../theme";
 
 // import all images from assets folder
-const importAll = (r) => {
-  r.keys().reduce((acc, item) => {
-    acc[item.replace("./", "")] = r(item);
-    return acc;
-  }, {});
-};
+// const importAll = (r) =>
+//   r.keys().reduce((acc, item) => {
+//     acc[item.replace("./", "")] = r(item);
+//     return acc;
+//   }, {});
 
-export const heroTextureImports = importAll(
-  require.context("../../assets", false, /\.(png|jpg?g|svg)$/)
-);
+// export const heroTextureImports = importAll(
+//   require.context("../../assets", false, /\.(png|jpe?g|svg)$/)
+// );
+
+// FIXING CODE - START
+async function importAllImages(folderPath) {
+  const images = {};
+  const imageFiles = import.meta.globEager(
+    `${folderPath}/*.{png,jpg,jpeg,svg}`
+  );
+  for (const filename in imageFiles) {
+    images[filename.replace(`${folderPath}/`, "")] =
+      imageFiles[filename].default;
+  }
+  return images;
+}
+
+export const heroTextureImports = await importAllImages("../../assets");
+// FIXING CODE - END
 
 export const MainCarousel = () => {
-  const isNonMobile = useMediaQuery("min-width:600px");
+  const isNonMobile = useMediaQuery("(min-width:600px)");
   return (
     <Carousel
       infiniteLoop={true}
@@ -28,7 +43,7 @@ export const MainCarousel = () => {
       renderArrowPrev={(onClickHandler, hasPrev, label) => (
         <IconButton
           onClick={onClickHandler}
-          sq={{
+          sx={{
             position: "absolute",
             top: "50%",
             left: "0",
@@ -43,7 +58,7 @@ export const MainCarousel = () => {
       renderArrowNext={(onClickHandler, hasNext, label) => (
         <IconButton
           onClick={onClickHandler}
-          sq={{
+          sx={{
             position: "absolute",
             top: "50%",
             right: "0",
@@ -62,28 +77,28 @@ export const MainCarousel = () => {
             src={texture}
             alt={`carousel-${index}`}
             style={{
-              wdith: "100%",
+              width: "100%",
               height: "700px",
               objectFit: "cover",
               backgroundAttachment: "fixed",
             }}
           />
-          {/* SUMMER SALE BOX */}
+          {/* Summer sALE */}
           <Box
             color="white"
             padding="20px"
             borderRadius="1px"
             textAlign="left"
-            backgroundColor="rgba(0,0,0, 0.4)"
+            backgroundColor="rgb(0, 0, 0, 0.4)"
             position="absolute"
             top="46%"
             left={isNonMobile ? "10%" : "0"}
             right={isNonMobile ? undefined : "0"}
             margin={isNonMobile ? undefined : "0 auto"}
-            maxWidth={isNonMobile ? undefined : "240"}
+            maxWidth={isNonMobile ? undefined : "240px"}
           >
             <Typography color={shades.secondary[200]}>-- NEW ITEMS</Typography>
-            <Typography variant="h1">SUMMER SALE</Typography>
+            <Typography variant="h1">Summer Sale</Typography>
             <Typography
               fontWeight="bold"
               color={shades.secondary[300]}
