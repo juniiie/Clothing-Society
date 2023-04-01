@@ -4,35 +4,29 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { shades } from "../../theme";
-
+import { TestCarousel } from "./TestCarousel";
 // import all images from assets folder
-// const importAll = (r) =>
-//   r.keys().reduce((acc, item) => {
-//     acc[item.replace("./", "")] = r(item);
-//     return acc;
-//   }, {});
 
-// export const heroTextureImports = importAll(
-//   require.context("../../assets", false, /\.(png|jpe?g|svg)$/)
+// 3rd Version - Working Version
+const heroTextureImports = Object.values(
+  import.meta.glob("../../assets/*.{png,jpg,jpeg,PNG,JPEG}", {
+    eager: true,
+    as: "url",
+  })
+);
+
+// This kinda works but does not display photos - Worse case scenario just import each image manually using import
+// const images = import.meta.glob("../../assets/*.{png,jpg,jpeg,PNG,JPEG}");
+
+// export const heroTextureImports = Object.fromEntries(
+//   Object.entries(images).map(([key, value]) => [
+//     // console.log(key, value),
+//     key.replace("../../assets/", ""),
+//     value.default,
+//   ])
 // );
 
-// FIXING CODE - START
-async function importAllImages(folderPath) {
-  const images = {};
-  const imageFiles = import.meta.globEager(
-    `${folderPath}/*.{png,jpg,jpeg,svg}`
-  );
-  for (const filename in imageFiles) {
-    images[filename.replace(`${folderPath}/`, "")] =
-      imageFiles[filename].default;
-  }
-  return images;
-}
-
-export const heroTextureImports = await importAllImages("../../assets");
-// FIXING CODE - END
-
-export const MainCarousel = () => {
+const MainCarousel = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
   return (
     <Carousel
@@ -106,9 +100,12 @@ export const MainCarousel = () => {
             >
               Discover More
             </Typography>
+            <TestCarousel />
           </Box>
         </Box>
       ))}
     </Carousel>
   );
 };
+
+export default MainCarousel;
