@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { IconButton, Box, Typography, useTheme, Button } from "@mui/material";
-import AddIcon from "@mui/material/Add";
+import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { shades } from "../theme";
 import { addToCart } from "../state";
@@ -16,7 +16,7 @@ export const Item = ({ item, width }) => {
     palette: { neutral },
   } = useTheme();
 
-  const { category, price, name, image } = item.attribues;
+  const { category, price, name, image } = item.attributes;
   const {
     data: {
       attributes: {
