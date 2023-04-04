@@ -45,8 +45,7 @@ export const ShoppingList = () => {
   return (
     <Box width="80%" margin="80px auto">
       <Typography variant="h3" textAlign="center">
-        {" "}
-        Our Featured
+        Our Featured <b>Products</b>
       </Typography>
       <Tabs
         textColor="primary"
@@ -62,10 +61,10 @@ export const ShoppingList = () => {
           },
         }}
       >
-        <Tabs label="ALL" value="all"></Tabs>
-        <Tabs label="NEW ARRIVALS" value="newArrivals"></Tabs>
-        <Tabs label="BEST SELLERS" value="bestSellers"></Tabs>
-        <Tabs label="TOP RATED" value="topRated"></Tabs>
+        <Tab label="ALL" value="all" />
+        <Tab label="NEW ARRIVALS" value="newArrivals" />
+        <Tab label="BEST SELLERS" value="bestSellers" />
+        <Tab label="TOP RATED" value="topRated" />
       </Tabs>
       <Box
         margin="0 auto"
