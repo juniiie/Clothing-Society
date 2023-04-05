@@ -40,7 +40,7 @@ export const Navbar = () => {
           sx={{ "&:hover": { cursor: "pointer" } }}
           color={shades.secondary[500]}
         >
-          ECCOMER
+          Clothing Society
         </Box>
         <Box
           display="flex"
