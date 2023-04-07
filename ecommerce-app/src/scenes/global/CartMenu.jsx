@@ -70,7 +70,8 @@ export const CartMenu = () => {
                       alt={item?.name}
                       width="123px"
                       height="164px"
-                      src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+                      // src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+                      src={` http://0.0.0.0:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
                     />
                   </Box>
 
