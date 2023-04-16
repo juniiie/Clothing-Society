@@ -19,7 +19,8 @@ export const ShoppingList = () => {
   //   Calls the backend - Grab the info from Strapi which will grab the items
   async function getItems() {
     const items = await fetch(
-      "http://localhost:1337/api/items?populate=image",
+      "clothing-society-production.up.railway.app/api/items?populate=image",
+      // "http://localhost:1337/api/items?populate=image",
       // " http://0.0.0.0:1337/api/items?populate=image",
       { method: "GET" }
     );
