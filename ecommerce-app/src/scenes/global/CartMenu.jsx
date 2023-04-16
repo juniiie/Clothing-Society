@@ -70,14 +70,14 @@ export const CartMenu = () => {
                       alt={item?.name}
                       width="123px"
                       height="164px"
-                      // src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
-                      src={` http://0.0.0.0:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+                      src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+                      // src={` http://0.0.0.0:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
                     />
                   </Box>
 
                   <Box flex="1 1 60%">
                     {/* ITEM NAME */}
-                    <FlexBox mb="5px">
+                    <FlexBox mb="5px" ml="5px">
                       <Typography fontWeight="bold">
                         {item.attributes.name}
                       </Typography>
@@ -90,13 +90,16 @@ export const CartMenu = () => {
                       </IconButton>
                     </FlexBox>
 
-                    <Typography>{item.attributes.shortDescription}</Typography>
+                    <Typography ml="5px">
+                      {item.attributes.shortDescription}
+                    </Typography>
 
                     {/* AMOUNT */}
                     <FlexBox m="15px 0">
                       <Box
                         display="flex"
                         alignItems="center"
+                        ml="5px"
                         border={`1.5px solid ${shades.neutral[500]}`}
                       >
                         <IconButton
