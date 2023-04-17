@@ -21,7 +21,6 @@ export const ShoppingList = () => {
     const items = await fetch(
       `https://clothing-society-production.up.railway.app/api/items?populate=image`,
       // "http://localhost:1337/api/items?populate=image",
-      // " http://0.0.0.0:1337/api/items?populate=image",
       { method: "GET" }
     );
 

@@ -40,7 +40,6 @@ export const Item = ({ item, width }) => {
           height="400px"
           src={`https://clothing-society-production.up.railway.app${url}`}
           // src={`http://localhost:1337${url}`}
-          // src={` http://0.0.0.0:1337${url}`}
           onClick={() => navigate(`/item/${item.id}`)}
           style={{ cursor: "pointer" }}
         />
