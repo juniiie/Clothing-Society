@@ -25,7 +25,6 @@ export const ShoppingList = () => {
     );
 
     const itemsJson = await items.json();
-    console.log("How about heeere?");
     dispatch(setItems(itemsJson.data));
   }
 
