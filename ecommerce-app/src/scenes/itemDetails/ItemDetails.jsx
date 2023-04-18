@@ -1,13 +1,15 @@
+import { Box, Button, IconButton, Typography } from "@mui/material";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { IconButton, Box, Typography, Button, Tabs, Tab } from "@mui/material";
+import { Item } from "../../components/Item";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { shades } from "../../theme";
 import { addToCart } from "../../state";
-import { useParams } from "react-router-dom";
-import { Item } from "../../components/Item";
+import { useDispatch } from "react-redux";
 
 export const ItemDetails = () => {
   const dispatch = useDispatch();
@@ -23,6 +25,7 @@ export const ItemDetails = () => {
 
   // Get the item details from strapi
   async function getItem() {
+    console.log(itemId);
     const item = await fetch(
       // Fetch from STRAPI SERVER
       `https://clothing-society-production.up.railway.app/api/items/${itemId}?populate=image`,
@@ -61,6 +64,7 @@ export const ItemDetails = () => {
             width="100%"
             height="100%"
             src={`https://clothing-society-production.up.railway.app${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+            // Something is undefined above. Keep getting error ERR_NAME_NOT_RESOLVED and shows the last bit of url as "...railway.appundefined"
             style={{ objectFit: "contain" }}
           />
         </Box>
@@ -74,7 +78,7 @@ export const ItemDetails = () => {
 
           <Box m="65px 0 25px 0">
             <Typography variant="h3">{item?.attributes?.name}</Typography>
-            <Typography>{item?.attributes?.price}</Typography>
+            <Typography>${item?.attributes?.price}</Typography>
             <Typography sx={{ mt: "20px" }}>
               {item?.attributes?.longDescription}
             </Typography>
@@ -99,7 +103,7 @@ export const ItemDetails = () => {
             </Box>
             <Button
               sx={{
-                backgroundColor: "222222",
+                backgroundColor: "#222222",
                 color: "white",
                 borderRadius: 0,
                 minWidth: "150px",
@@ -155,3 +159,6 @@ export const ItemDetails = () => {
     </Box>
   );
 };
+
+// DELETE TILL HERE
+// lol
