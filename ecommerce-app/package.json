@@ -15,6 +15,7 @@
     "@mui/material": "^5.11.14",
     "@reduxjs/toolkit": "^1.9.3",
     "@rollup/plugin-commonjs": "^24.0.1",
+    "@stripe/stripe-js": "^1.52.1",
     "dotenv": "^16.0.3",
     "esbuild": "^0.17.16",
     "formik": "^2.2.9",

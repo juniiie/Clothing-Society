@@ -52,7 +52,7 @@ export const ItemDetails = () => {
   useEffect(() => {
     getItem();
     getItems();
-  }, [itemId]); //eslint-disable-line react-hooks/exhaustive-deps
+  }, [itemId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <Box width="80%" m="80px auto">
