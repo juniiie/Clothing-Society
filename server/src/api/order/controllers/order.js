@@ -46,9 +46,13 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       });
 
       //   Create the item in backend - strapi- creates order automatically
-      await strapi.service("api::order.order").create({
-        data: { userName, products, stripeSessionId: session.id },
-      });
+      //   await strapi.service("api::order.order").create({
+      //     data: { userName, products, stripeSessionId: session.id },
+      //   });
+
+      await strapi
+        .service("api::order.order")
+        .create({ data: { userName, products, stripeSessionId: session.id } });
 
       //   Return session id for front end to use
       return { id: session.id };
