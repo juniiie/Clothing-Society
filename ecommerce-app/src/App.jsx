@@ -30,7 +30,7 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="item/:itemId" element={<ItemDetails />}></Route>
           <Route path="checkout" element={<Checkout />}></Route>
-          <Route path="checkout/success" element={<Confirmation />}></Route>
+          <Route path="checkout/success" element={<Confirmation />} />
         </Routes>
         <CartMenu />
         <Footer />

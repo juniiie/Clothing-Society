@@ -28,9 +28,9 @@ export const ItemDetails = () => {
     console.log(itemId);
     const item = await fetch(
       // Fetch from STRAPI SERVER
-      `https://clothing-society-production.up.railway.app/api/items/${itemId}?populate=image`,
+      // `https://clothing-society-production.up.railway.app/api/items/${itemId}?populate=image`,
       // Fetch from LOCALHOST SERVER
-      // `http://localhost:1337${itemId}?populate=image`,
+      `http://localhost:1337/api/items/${itemId}?populate=image`,
       { method: "GET" }
     );
     const itemJson = await item.json();
@@ -40,10 +40,9 @@ export const ItemDetails = () => {
   async function getItems() {
     const items = await fetch(
       // Fetch from STRAPI SERVER
-      `https://clothing-society-production.up.railway.app/api/items?populate=image`,
+      // `https://clothing-society-production.up.railway.app/api/items?populate=image`,
       // Fetch from LOCALHOST SERVER
-      // `http://localhost:1337${itemId}?populate=image`,
-      { method: "GET" }
+      `http://localhost:1337/api/items?populate=image`
     );
     const itemsJson = await items.json();
     setItems(itemsJson.data);
@@ -63,7 +62,8 @@ export const ItemDetails = () => {
             alt={item?.name}
             width="100%"
             height="100%"
-            src={`https://clothing-society-production.up.railway.app${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+            // src={`https://clothing-society-production.up.railway.app${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+            src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
             // Something is undefined above. Keep getting error ERR_NAME_NOT_RESOLVED and shows the last bit of url as "...railway.appundefined"
             style={{ objectFit: "contain" }}
           />
