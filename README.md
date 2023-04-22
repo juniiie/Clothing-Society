@@ -1,4 +1,6 @@
-# Style-Society
+# Clothing-Society
+
+LIVE APPLICATION: https://fastidious-gecko-a21498.netlify.app/
 
 Features to add in future:
 
@@ -10,3 +12,9 @@ React, MaterialUI, Stripe, Formik, yup, strapi, redux toolkit were all used to b
 
 Backend
 Integrated stripe API with Strapi for payment functionality
+
+STRIPE TEST PAYMENT
+SUCCESS CARD - 4242424242424242
+DECLINED CARD - 4000000000000002
+
+Name, cvc, exp date can be random
