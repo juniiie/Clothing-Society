@@ -131,8 +131,8 @@ export const Checkout = () => {
 
     const response = await fetch(
       // Live website gives POST 400 error
-      // "https://clothing-society-production.up.railway.app/api/orders",
-      "http://localhost:1337/api/orders",
+      "https://clothing-society-production.up.railway.app/api/orders",
+      // "http://localhost:1337/api/orders",
       // Localhost url gives internal server error POST 500 code
       {
         method: "POST",

@@ -5,7 +5,8 @@ export const Confirmation = () => {
     <Box m="90px auto" width="80%" height="50vh">
       <Alert severity="success">
         <AlertTitle>Success</AlertTitle>
-        You have successfuly made an Order - <strong>Thank you for mak</strong>
+        You have successfuly made an Order -{" "}
+        <strong>Thank you for supporting Us!</strong>
       </Alert>
     </Box>
   );
