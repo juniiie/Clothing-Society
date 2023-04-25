@@ -42,11 +42,11 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         customer_email: email,
         mode: "payment",
         // Stripe helps redirect
-        success_url: "http://localhost:5173/checkout/success",
-        // success_url:
-        //   "https://clothing-society-production.up.railway.app/checkout/success",
-        cancel_url: "http://localhost:5173",
-        // cancel_url: "https://clothing-society-production.up.railway.app",
+        // success_url: "http://localhost:5173/checkout/success",
+        success_url:
+          "https://clothing-society-production.up.railway.app/checkout/success",
+        // cancel_url: "http://localhost:5173",
+        cancel_url: "https://clothing-society-production.up.railway.app",
         line_items: lineItems,
       });
 
